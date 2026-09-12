@@ -1,0 +1,9 @@
+export const skillData = [
+  "FULLSTACK DEVELOPER",
+  "SWITCHING & ROUTING",
+  "INTERNET OF THINGS",
+  "NETWORKING",
+  "DOCKER",
+  "VIRTUALIZATION",
+  "GIT"
+];

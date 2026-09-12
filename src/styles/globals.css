@@ -1,0 +1,283 @@
+/* =========================================
+   1. IMPORTS & FONTS
+   ========================================= */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================================
+   2. VARIABLES
+   ========================================= */
+:root {
+  --bg-color: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+}
+
+/* =========================================
+   3. GLOBAL RESET
+   ========================================= */
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Mencegah scroll samping di Mobile */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  
+  /* DEFAULT DESKTOP: HILANGKAN KURSOR ASLI */
+  cursor: none; 
+}
+
+/* Hilangkan outline biru default browser saat klik */
+:focus {
+  outline: none;
+}
+
+/* =========================================
+   4. CURSOR & INPUT LOGIC (DESKTOP)
+   ========================================= */
+/* Paksa sembunyikan kursor asli di desktop */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* PENGECUALIAN: Munculkan kursor asli di area interaktif */
+  .modal-content, 
+  .modal-content *, 
+  input, 
+  textarea,
+  select {
+    cursor: auto !important; 
+  }
+}
+
+/* Helper Custom Cursor */
+.custom-cursor {
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
+/* Kembalikan caret (garis ketik) di input */
+input, textarea {
+  caret-color: auto !important;
+}
+
+/* =========================================
+   5. BOOTSTRAP MODAL OVERRIDE
+   ========================================= */
+/* Modal Backdrop Blur */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* Khusus Modal Fullscreen/Sertifikat */
+.modal-backdrop-blur {
+  opacity: 1 !important; 
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* =========================================
+   6. TYPOGRAPHY & UTILITIES
+   ========================================= */
+.display-super {
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+  color: #000000;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+.spacing-3 {
+  letter-spacing: 3px;
+}
+
+.tracking-wider {
+  letter-spacing: 1px;
+}
+
+/* Navbar Hover Effect */
+.nav-hover-white {
+  position: relative;
+}
+.nav-hover-white::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+.nav-hover-white:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   7. BUTTON STYLES
+   ========================================= */
+.btn-black {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 0;
+  padding: 12px 30px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-black:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-outline-black {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0;
+  padding: 12px 30px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-outline-black:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* =========================================
+   8. HERO DECORATION
+   ========================================= */
+.giant-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+  user-select: none;
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   9. FINISHING TOUCHES
+   ========================================= */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+/* Text Selection Color */
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+::-moz-selection {
+  background-color: #000;
+  color: #fff;
+}
+
+/* =========================================
+   10. MOBILE & RESPONSIVE OPTIMIZATION
+   ========================================= */
+
+/* A. LAYAR TOUCH SCREEN / MOBILE (Matikan Custom Cursor) */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important; /* Balikin kursor normal */
+  }
+  
+  body {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none !important; /* Sembunyikan lingkaran kursor custom */
+  }
+
+  /* Tombol lebih mudah ditekan */
+  .btn, a, button {
+    cursor: pointer !important; 
+    min-height: 44px; /* Touch target size friendly */
+  }
+}
+
+/* B. LAYAR KECIL (HP < 768px) */
+@media (max-width: 768px) {
+  
+  /* Typography Scaling */
+  .display-super {
+    font-size: 3rem; /* Kecilin font raksasa */
+  }
+  
+  h1.display-1 {
+    font-size: 3.5rem !important; /* Hero title responsive */
+  }
+
+  h2.display-4 {
+    font-size: 2.5rem !important; /* Sub-heading responsive */
+  }
+
+  /* Layout Adjustments */
+  .giant-bg-text {
+    font-size: 25vw; /* Text background lebih proporsional */
+    top: 30%; /* Geser dikit ke atas */
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Tombol Full Width di HP biar enak dipencet */
+  .btn-black, .btn-outline-black {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Scrollbar native di HP (biar smooth) */
+  ::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+}
