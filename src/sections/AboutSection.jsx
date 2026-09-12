@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import profile from "../assets/profile.jpg";
+import profile from "../assets/profile_new.jpeg";
 
 const AboutSection = () => {
   // Config animasi muncul scroll
@@ -55,7 +55,6 @@ const AboutSection = () => {
                     style={{ 
                       cursor: "pointer"
                     }}
-                    // Efek Zoom dikit pas hover
                     whileHover={{ scale: 1.05 }} 
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   />

@@ -66,6 +66,7 @@ const HeroSection = () => {
                   {/* Tombol CV */}
                   <a 
                     href={heroData.cvPdf} 
+                    download="CV_Raihan_Setiawan.pdf"
                     target="_blank" 
                     rel="noreferrer"
                     className="btn btn-black rounded-0 py-3 text-uppercase fw-bold d-flex justify-content-between align-items-center"
