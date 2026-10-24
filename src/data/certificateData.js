@@ -12,6 +12,7 @@ import automation from "../assets/automation.png"
 import udemy_github from "../assets/udemy_github.png"
 import udemy_datascience from "../assets/udemy_datascience.png"
 import udemy_agenticai from "../assets/udemy_agenticai.png"
+import cert_cps from "../assets/sertifikat_cps.png"
 
 export const certificateData = [
   {
@@ -124,5 +125,13 @@ export const certificateData = [
     date: "27/01/2026",
     image: udemy_agenticai,
     credentialId: "UC-c1e1f137-072c-4e6d-bb1a-fa6e43037b37"
+  },
+  {
+    id: 14,
+    title: "Laboratory Teaching",
+    issuer: "Telkom University",
+    date: "27/01/2026",
+    image: cert_cps,
+    credentialId: "SAP-019/AKD7/TE-DEK/2025"
   },
 ];
